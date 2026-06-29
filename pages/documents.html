@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документы - Уфимский международный университет технологий и бизнеса</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2b6cb0;
+      --accent: #8B4513;
+      --light: #f8f9fa;
+      --dark: #2d3748;
+      --gray: #718096;
+      --light-gray: #e2e8f0;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .logo-text {
+      margin-left: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 0 10px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: var(--transition);
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: var(--light);
+      padding: 100px 0 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .hero-title {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+      font-weight: 400;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 0 10px;
+      font-family: 'Georgia', serif;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: 1px solid var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Maintenance Section */
+    .maintenance {
+      padding: 80px 0;
+      background: white;
+      text-align: center;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .maintenance-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background: var(--light);
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--light-gray);
+    }
+    
+    .maintenance-icon {
+      font-size: 4rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    
+    .maintenance-text {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: var(--dark);
+    }
+    
+    .countdown {
+      margin: 30px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .countdown-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .countdown-unit {
+      padding: 15px;
+      background: var(--primary);
+      color: white;
+      border-radius: 4px;
+      min-width: 80px;
+    }
+    
+    .countdown-number {
+      font-size: 2rem;
+      font-weight: bold;
+      display: block;
+    }
+    
+    .countdown-label {
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: block;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .contact-info {
+      padding: 30px;
+      background: var(--light);
+      border-radius: 4px;
+      border: 1px solid var(--light-gray);
+    }
+    
+    .contact-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .contact-list {
+      list-style: none;
+    }
+    
+    .contact-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-list i {
+      margin-right: 15px;
+      color: var(--accent);
+      width: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-title {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #cbd5e0;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.9rem;
+      color: #cbd5e0;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 2.4rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .countdown-timer {
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo img {
+        height: 50px;
+      }
+      
+      .logo-text {
+        font-size: 1rem;
+      }
+      
+      .hero {
+        padding: 80px 0 60px;
+      }
+      
+      .contact-info {
+        padding: 20px;
+      }
+      
+      .maintenance-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="assets/logo.png">
+        <div class="logo-text">Уфимский международный университет технологий и бизнеса</div>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">Об университете</a></li>
+          <li><a href="faculties.html">Факультеты</a></li>
+          <li><a href="admission.html">Поступление</a></li>
+          <li><a href="documents.html" style="background: rgba(255, 255, 255, 0.2);">Документы</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Раздел "Документы"</h1>
+      <p class="hero-subtitle">Официальные документы Уфимского международного университета технологий и бизнеса</p>
+    </div>
+  </section>
+
+  <!-- Maintenance Section -->
+  <section class="maintenance">
+    <div class="container">
+      <h2 class="section-title">Ведутся профилактические работы</h2>
+      
+      <div class="maintenance-content">
+        <div class="maintenance-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        
+        <p class="maintenance-text">
+          В настоящее время раздел "Документы" находится на техническом обслуживании и временно недоступен.
+          Мы проводим работы по обновлению и улучшению системы для вашего удобства.
+        </p>
+        
+        <p class="maintenance-text">
+          Ожидаемый запуск раздела состоится через <strong>7 рабочих дней</strong>. Приносим извинения за временные неудобства.
+        </p>
+        
+        <div class="countdown">
+          <h3 class="countdown-title">До запуска раздела осталось:</h3>
+          <div class="countdown-timer">
+            <div class="countdown-unit">
+              <span class="countdown-number" id="days">7</span>
+              <span class="countdown-label">дней</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-label">часов</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-label">минут</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-label">секунд</span>
+            </div>
+          </div>
+        </div>
+        
+        <p class="maintenance-text">
+          Если вам срочно требуется доступ к определенным документам, пожалуйста, обратитесь в приемную комиссию или деканат.
+        </p>
+        
+        <a href="contacts.html" class="btn btn-primary">Связаться с нами</a>
+        <a href="index.html" class="btn btn-outline">Вернуться на главную</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="contact-title">Контактная информация</h3>
+          
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>г. Уфа, ул. Академическая, 1</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 123-45-67</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 234-56-78</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@umutb.ru (общие вопросы)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>support@umutb.ru (студенческие вопросы)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>administration@umutb.ru (ректорат)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>office@umutb.ru (управление)</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="contact-info">
+          <h3 class="contact-title">Остались вопросы?</h3>
+          <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+          
+          <form style="margin-top: 20px;">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <input type="email" placeholder="Ваш email" class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <textarea placeholder="Ваше сообщение" class="form-input"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить сообщение</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">УМУТиБ</h3>
+          <p>Негосударственное образовательное частное учреждение высшего образования «Уфимский международный университет технологий и бизнеса»</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Образование</h3>
+          <ul class="footer-links">
+            <li><a href="#">Бакалавриат</a></li>
+            <li><a href="#">Магистратура</a></li>
+            <li><a href="#">Аспирантура</a></li>
+            <li><a href="#">Дополнительное образование</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Факультеты</h3>
+          <ul class="footer-links">
+            <li><a href="#">Математики и компьютерных наук</a></li>
+            <li><a href="#">Физический</a></li>
+            <li><a href="#">Экономический</a></li>
+            <li><a href="pages/programs.html">Все факультеты</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Контакты</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+73471234567">+7 (347) 123-45-67</a></li>
+            <li><a href="mailto:info@umutb.ru">info@umutb.ru</a></li>
+            <li><a href="#">г. Уфа, ул. Академическая, 1</a></li>
+            <li><a href="#">Схема проезда</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Уфимский международный университет технологий и бизнеса. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      const nav = document.querySelector('nav ul');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    // Countdown timer (7 days from now)
+    function updateCountdown() {
+      const now = new Date();
+      const launchDate = new Date(now);
+      launchDate.setDate(now.getDate() + 7);
+      
+      const timeRemaining = launchDate - now;
+      
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+  </script>
+</body>
+</html>

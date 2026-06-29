@@ -1,0 +1,1034 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поступление - Уфимский международный университет технологий и бизнеса</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2b6cb0;
+      --accent: #8B4513;
+      --light: #f8f9fa;
+      --dark: #2d3748;
+      --gray: #718096;
+      --light-gray: #e2e8f0;
+      --success: #38a169;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .logo-text {
+      margin-left: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 0 15px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: var(--transition);
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero-title {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 0 10px;
+      font-family: 'Georgia', serif;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* Admission Process */
+    .process {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .step {
+      width: 280px;
+      text-align: center;
+      position: relative;
+      padding: 30px 20px;
+      background: var(--light);
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    
+    .step-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    /* Programs Section */
+    .programs {
+      padding: 80px 0;
+      background: var(--light);
+    }
+    
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .program-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .program-img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .program-content {
+      padding: 25px;
+    }
+    
+    .program-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .program-features {
+      list-style: none;
+      margin: 20px 0;
+    }
+    
+    .program-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+    
+    .program-features i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    
+    /* Requirements Section */
+    .requirements {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .requirement-card {
+      padding: 30px;
+      background: var(--light);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .requirement-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    /* Timeline Section */
+    .timeline {
+      padding: 80px 0;
+      background: var(--light);
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--accent);
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+      width: 50%;
+      padding: 20px 40px;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      transform: rotate(45deg);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      right: -10px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::after {
+      left: -10px;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      background: var(--light);
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 20px;
+      max-height: 500px;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background: var(--light);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .contact-info {
+      padding: 30px;
+      background: white;
+      border-radius: 4px;
+      border: 1px solid var(--light-gray);
+    }
+    
+    .contact-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .contact-list {
+      list-style: none;
+    }
+    
+    .contact-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-list i {
+      margin-right: 15px;
+      color: var(--accent);
+      width: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-title {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #cbd5e0;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.9rem;
+      color: #cbd5e0;
+    }
+    
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 2.4rem;
+      }
+      
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 20px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content::after {
+        left: -10px;
+        right: auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 250px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo img {
+        height: 50px;
+      }
+      
+      .logo-text {
+        font-size: 1rem;
+      }
+      
+      .hero {
+        padding: 80px 0 60px;
+      }
+      
+      .step {
+        width: 100%;
+      }
+      
+      .contact-info {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="https://via.placeholder.com/1024x1024?text=УМУТиБ" alt="УМУТиБ Логотип">
+        <div class="logo-text">Уфимский международный университет технологий и бизнеса</div>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">Об университете</a></li>
+          <li><a href="#">Факультеты</a></li>
+          <li><a href="admission.html" class="active">Поступление</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Поступление в УМУТиБ</h1>
+      <p class="hero-subtitle">Откройте двери к успешному будущему с качественным образованием в нашем университете</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn btn-primary">Выбрать программу</a>
+        <a href="#contact" class="btn btn-outline">Задать вопрос</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title">Процесс поступления</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Поступление в наш университет - это простой и понятный процесс, состоящий из нескольких шагов. Мы поможем вам на каждом этапе!</p>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+          <h3 class="step-title">Подача документов</h3>
+          <p>Подготовка и подача необходимого пакета документов</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-pen"></i></div>
+          <h3 class="step-title">Вступительные испытания</h3>
+          <p>Прохождение вступительных экзаменов или предоставление результатов ЕГЭ</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+          <h3 class="step-title">Зачисление</h3>
+          <p>Оформление приказа о зачислении и получение студенческого билета</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3 class="step-title">Начало обучения</h3>
+          <p>Присутствие на orientation week и начало учебного процесса</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs" id="programs">
+    <div class="container">
+      <h2 class="section-title">Программы обучения</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Мы предлагаем разнообразные программы обучения для будущих студентов. Выберите то, что соответствует вашим интересам и карьерным целям.</p>
+      
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+          <div class="program-content">
+            <h3 class="program-title">Бакалавриат</h3>
+            <p>4-летние программы фундаментального образования по различным направлениям</p>
+            <ul class="program-features">
+              <li><i class="fas fa-clock"></i> Срок обучения: 4 года</li>
+              <li><i class="fas fa-graduation-cap"></i> Форма: очная, заочная</li>
+              <li><i class="fas fa-ruble-sign"></i> Стоимость: от 85 000 руб./год</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Подробнее</a>
+          </div>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1560785496-3c9d27877182?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+          <div class="program-content">
+            <h3 class="program-title">Магистратура</h3>
+            <p>2-летние программы углубленной подготовки для бакалавров</p>
+            <ul class="program-features">
+              <li><i class="fas fa-clock"></i> Срок обучения: 2 года</li>
+              <li><i class="fas fa-graduation-cap"></i> Форма: очная, заочная</li>
+              <li><i class="fas fa-ruble-sign"></i> Стоимость: от 95 000 руб./год</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Подробнее</a>
+          </div>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+          <div class="program-content">
+            <h3 class="program-title">Аспирантура</h3>
+            <p>Программы подготовки научно-педагогических кадров высшей квалификации</p>
+            <ul class="program-features">
+              <li><i class="fas fa-clock"></i> Срок обучения: 3-4 года</li>
+              <li><i class="fas fa-graduation-cap"></i> Форма: очная, заочная</li>
+              <li><i class="fas fa-ruble-sign"></i> Стоимость: от 110 000 руб./год</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements Section -->
+  <section class="requirements">
+    <div class="container">
+      <h2 class="section-title">Требования для поступления</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Для успешного поступления в наш университет необходимо подготовить следующие документы и соответствовать базовым требованиям.</p>
+      
+      <div class="requirements-grid">
+        <div class="requirement-card">
+          <h3 class="requirement-title">Бакалавриат</h3>
+          <ul>
+            <li>Аттестат о среднем общем образовании</li>
+            <li>Результаты ЕГЭ</li>
+            <li>Паспорт и фотографии 3x4</li>
+            <li>Медицинская справка 086/У</li>
+            <li>Заявление о приеме</li>
+          </ul>
+        </div>
+        
+        <div class="requirement-card">
+          <h3 class="requirement-title">Магистратура</h3>
+          <ul>
+            <li>Диплом бакалавра или специалиста</li>
+            <li>Результаты вступительных испытаний</li>
+            <li>Паспорт и фотографии 3x4</li>
+            <li>Резюме и мотивационное письмо</li>
+            <li>Заявление о приеме</li>
+          </ul>
+        </div>
+        
+        <div class="requirement-card">
+          <h3 class="requirement-title">Иностранным абитуриентам</h3>
+          <ul>
+            <li>Документ об образовании с нотариальным переводом</li>
+            <li>Сертификат о знании русского языка</li>
+            <li>Копия паспорта и миграционная карта</li>
+            <li>Медицинская справка и страховка</li>
+            <li>Заявление установленного образца</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline">
+    <div class="container">
+      <h2 class="section-title">Сроки подачи документов</h2>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">20 июня - 10 июля</div>
+          <h3 class="timeline-title">Начало приема документов</h3>
+          <p>Начало приема документов на очную форму обучения на бюджетной основе</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">до 20 июля</div>
+          <h3 class="timeline-title">Вступительные испытания</h3>
+          <p>Завершение вступительных испытаний, проводимых университетом самостоятельно</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">до 26 июля</div>
+          <h3 class="timeline-title">Предоставление оригиналов</h3>
+          <p>Предоставление оригиналов документов об образовании для абитуриентов на бюджет</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">29 июля</div>
+          <h3 class="timeline-title">Приказ о зачислении</h3>
+          <p>Издание приказа о зачислении абитуриентов на бюджетные места</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">до 20 августа</div>
+          <h3 class="timeline-title">Прием на платной основе</h3>
+          <p>Завершение приема документов на контрактной основе</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">25 августа</div>
+          <h3 class="timeline-title">Зачисление на контракт</h3>
+          <p>Издание приказа о зачислении абитуриентов на платной основе</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Часто задаваемые вопросы</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Какие минимальные баллы ЕГЭ требуются для поступления?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Минимальные баллы ЕГЭ для подачи документов: Русский язык - 40 баллов, Математика - 39 баллов, Обществознание - 45 баллов, Информатика - 44 балла, Иностранный язык - 30 баллов. Конкретные проходные баллы зависят от направления подготовки и конкурса.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Возможно ли обучение по целевому направлению?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Да, университет сотрудничает с предприятиями и организациями, которые могут направить абитуриентов для обучения по целевой программе. Для этого необходимо заключить договор с предприятием и предоставить его в приемную комиссию.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Предоставляется ли общежитие иногородним студентам?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Да, университет предоставляет места в комфортабельных общежитиях для всех иногородних студентов. Стоимость проживания составляет от 1500 руб./месяц в зависимости от условий проживания.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Есть ли программы скидок на обучение?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Да, мы предоставляем скидки на обучение: 10% для абитуриентов с высокими баллами ЕГЭ (сумма более 220 баллов), 15% для победителей олимпиад, 20% для студентов, имеющих достижения в научной деятельности. Также предусмотрены семейные скидки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Остались вопросы?</h2>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="contact-title">Приемная комиссия</h3>
+          
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>г. Уфа, ул. Академическая, 1, каб. 105</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 123-45-67 (приемная комиссия)</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 234-56-78 (справочная)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>priem@umutb.ru (вопросы по поступлению)</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Пн-Пт: 9:00-18:00, Сб: 10:00-15:00</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="contact-info">
+          <h3 class="contact-title">Задайте вопрос онлайн</h3>
+          <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+          
+          <form style="margin-top: 20px;">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <input type="email" placeholder="Ваш email" class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" placeholder="Ваш телефон" class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <textarea placeholder="Ваше сообщение" class="form-input"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить сообщение</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">УМУТиБ</h3>
+          <p>Негосударственное образовательное частное учреждение высшего образования «Уфимский международный университет технологий и бизнеса»</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Образование</h3>
+          <ul class="footer-links">
+            <li><a href="#">Бакалавриат</a></li>
+            <li><a href="#">Магистратура</a></li>
+            <li><a href="#">Аспирантура</a></li>
+            <li><a href="#">Дополнительное образование</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Факультеты</h3>
+          <ul class="footer-links">
+            <li><a href="#">Математики и компьютерных наук</a></li>
+            <li><a href="#">Физический</a></li>
+            <li><a href="#">Экономический</a></li>
+            <li><a href="#">Все факультеты</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Контакты</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+73471234567">+7 (347) 123-45-67</a></li>
+            <li><a href="mailto:info@umutb.ru">info@umutb.ru</a></li>
+            <li><a href="#">г. Уфа, ул. Академическая, 1</a></li>
+            <li><a href="#">Схема проезда</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Уфимский международный университет технологий и бизнеса. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      const nav = document.querySelector('nav ul');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

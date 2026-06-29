@@ -1,0 +1,953 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Об университете - Уфимский международный университет технологий и бизнеса</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2b6cb0;
+      --accent: #8B4513;
+      --light: #f8f9fa;
+      --dark: #2d3748;
+      --gray: #718096;
+      --light-gray: #e2e8f0;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #fff;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .logo-text {
+      margin-left: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin: 0 15px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: var(--transition);
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    
+    /* Breadcrumbs */
+    .breadcrumbs {
+      background: var(--light);
+      padding: 15px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .breadcrumbs ol {
+      display: flex;
+      list-style: none;
+    }
+    
+    .breadcrumbs li {
+      margin-right: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumbs li:after {
+      content: '/';
+      margin-left: 10px;
+      color: var(--gray);
+    }
+    
+    .breadcrumbs li:last-child:after {
+      content: '';
+    }
+    
+    .breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Page Header */
+    .page-header {
+      padding: 60px 0 40px;
+      text-align: center;
+      background: white;
+    }
+    
+    .page-title {
+      font-size: 2.8rem;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+      margin-bottom: 20px;
+    }
+    
+    .page-subtitle {
+      font-size: 1.4rem;
+      color: var(--dark);
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+    
+    /* Content Sections */
+    .content-section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .content-section:last-child {
+      border-bottom: none;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .section-title.center {
+      text-align: center;
+    }
+    
+    .section-title.center:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* History Section */
+    .history-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+    
+    .history-timeline:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: var(--accent);
+    }
+    
+    .timeline-item {
+      display: flex;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+    
+    .timeline-content {
+      width: 45%;
+      padding: 20px;
+      background: var(--light);
+      border-radius: 4px;
+      border: 1px solid var(--light-gray);
+    }
+    
+    .timeline-year {
+      position: absolute;
+      top: 20px;
+      width: 80px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-year {
+      left: calc(50% - 40px);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-year {
+      right: calc(50% - 40px);
+    }
+    
+    /* Leadership Section */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .leader-card {
+      background: white;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .leader-card:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .leader-image {
+      height: 300px;
+      overflow: hidden;
+    }
+    
+    .leader-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .leader-card:hover .leader-image img {
+      transform: scale(1.05);
+    }
+    
+    .leader-info {
+      padding: 20px;
+    }
+    
+    .leader-name {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    .leader-position {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    /* Faculties Section */
+    .faculties-list {
+      margin-top: 40px;
+    }
+    
+    .faculty-item {
+      margin-bottom: 20px;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .faculty-header {
+      background: var(--light);
+      padding: 15px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+    
+    .faculty-content {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .faculty-content.active {
+      max-height: 1000px;
+      padding: 20px;
+    }
+    
+    .programs-list {
+      list-style: none;
+    }
+    
+    .programs-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .programs-list li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Stats Section */
+    .stats {
+      padding: 60px 0;
+      background: var(--light);
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .stat {
+      padding: 20px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .stat-label {
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 60px 0;
+      background: white;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .contact-info {
+      padding: 30px;
+      background: var(--light);
+      border-radius: 4px;
+      border: 1px solid var(--light-gray);
+    }
+    
+    .contact-title {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .contact-list {
+      list-style: none;
+    }
+    
+    .contact-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-list i {
+      margin-right: 15px;
+      color: var(--accent);
+      width: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-title {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    .footer-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #cbd5e0;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.9rem;
+      color: #cbd5e0;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .page-title {
+        font-size: 2.4rem;
+      }
+      
+      .history-timeline:before {
+        left: 30px;
+      }
+      
+      .timeline-item {
+        flex-direction: row !important;
+      }
+      
+      .timeline-content {
+        width: calc(100% - 100px);
+        margin-left: 80px;
+      }
+      
+      .timeline-year {
+        left: 0 !important;
+        right: auto !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .logo img {
+        height: 50px;
+      }
+      
+      .logo-text {
+        font-size: 1rem;
+      }
+      
+      .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+      }
+      
+      .leader-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="https://via.placeholder.com/1024x1024?text=УМУТиБ" alt="УМУТиБ Логотип">
+        <div class="logo-text">Уфимский международный университет технологий и бизнеса</div>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">Об университете</a></li>
+          <li><a href="faculties.html">Факультеты</a></li>
+          <li><a href="admission.html">Поступление</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Главная</a></li>
+        <li>Об университете</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Об университете</h1>
+      <p class="page-subtitle">Уфимский международный университет технологий и бизнеса - ведущее образовательное учреждение, сочетающее традиции академического образования и современные подходы к подготовке специалистов</p>
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">История университета</h2>
+      <p>Уфимский международный университет технологий и бизнеса был основан в 1992 году как ответ на растущую потребность в квалифицированных специалистах в области технологий и бизнеса. За годы своего существования университет прошел путь от небольшого института до одного из ведущих вузов региона.</p>
+      
+      <div class="history-timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Основание</h3>
+            <p>Университет основан как Уфимский технологический институт с двумя факультетами: инженерно-техническим и экономическим.</p>
+          </div>
+          <div class="timeline-year">1992</div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Расширение</h3>
+            <p>Открыты новые факультеты: информационных технологий, международных отношений и лингвистики. Институт получает статус академии.</p>
+          </div>
+          <div class="timeline-year">1998</div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Международное признание</h3>
+            <p>Заключены первые соглашения о сотрудничестве с университетами Европы и США. Запущены программы двойных дипломов.</p>
+          </div>
+          <div class="timeline-year">2005</div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Статус университета</h3>
+            <p>Академия получает статус университета и современное название - Уфимский международный университет технологий и бизнеса.</p>
+          </div>
+          <div class="timeline-year">2010</div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Современное развитие</h3>
+            <p>Открытие новых лабораторий, исследовательских центров и кампуса европейского уровня. Университет входит в топ-100 вузов России.</p>
+          </div>
+          <div class="timeline-year">2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="content-section" style="background: var(--light);">
+    <div class="container">
+      <h2 class="section-title center">Миссия и ценности</h2>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Миссия УМУТиБ - подготовка конкурентоспособных специалистов, способных к инновационной деятельности в условиях глобальной экономики, путем интеграции образовательного процесса с научными исследованиями и практикой.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+          <div style="text-align: center; padding: 20px;">
+            <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3 style="margin-bottom: 15px;">Качество образования</h3>
+            <p>Стремление к высочайшим стандартам преподавания и обучения</p>
+          </div>
+          
+          <div style="text-align: center; padding: 20px;">
+            <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 style="margin-bottom: 15px;">Инновации</h3>
+            <p>Внедрение передовых технологий и методик в образовательный процесс</p>
+          </div>
+          
+          <div style="text-align: center; padding: 20px;">
+            <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 15px;">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 style="margin-bottom: 15px;">Партнерство</h3>
+            <p>Развитие сотрудничества с бизнес-сообществом и академическими партнерами</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Руководство университета</h2>
+      <p>Университет возглавляет команда опытных professionals, сочетающих академические знания и практический опыт работы в различных отраслях экономики.</p>
+      
+      <div class="leadership-grid">
+        <div class="leader-card">
+          <div class="leader-image">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Иванов Александр Сергеевич">
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Иванов Александр Сергеевич</h3>
+            <p class="leader-position">Ректор</p>
+            <p>Доктор экономических наук, профессор. Возглавляет университет с 2015 года.</p>
+          </div>
+        </div>
+        
+        <div class="leader-card">
+          <div class="leader-image">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Петрова Елена Викторовна">
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Петрова Елена Викторовна</h3>
+            <p class="leader-position">Проректор по учебной и научной работе</p>
+            <p>Доктор технических наук, профессор. Автор более 100 научных работ.</p>
+          </div>
+        </div>
+        
+        <div class="leader-card">
+          <div class="leader-image">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Сидоров Дмитрий Иванович">
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Сидоров Дмитрий Иванович</h3>
+            <p class="leader-position">Проректор по экономическому развитию</p>
+            <p>Кандидат экономических наук, доцент. Специалист в области управления вузами.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculties Section -->
+  <section class="content-section" style="background: var(--light);">
+    <div class="container">
+      <h2 class="section-title">Факультеты и направления</h2>
+      <p>Университет предлагает широкий спектр образовательных программ по различным направлениям подготовки, отвечающим современным требованиям рынка труда.</p>
+      
+      <div class="faculties-list">
+        <div class="faculty-item">
+          <div class="faculty-header">
+            <span>Факультет математики и компьютерных наук</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faculty-content">
+            <p>Один из старейших факультетов университета, готовящий специалистов в области математики, компьютерных наук и информационных технологий.</p>
+            <h4>Направления подготовки:</h4>
+            <ul class="programs-list">
+              <li>01.03.01 Математика</li>
+              <li>01.03.02 Прикладная математика и информатика</li>
+              <li>02.03.01 Математика и компьютерные науки</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="faculty-item">
+          <div class="faculty-header">
+            <span>Экономический факультет</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faculty-content">
+            <p>Крупнейший факультет университета, осуществляющий подготовку экономистов, менеджеров и финансистов для различных отраслей экономики.</p>
+            <h4>Направления подготовки:</h4>
+            <ul class="programs-list">
+              <li>38.03.01 Экономика</li>
+              <li>38.03.02 Менеджмент</li>
+              <li>38.03.04 Государственное и муниципальное управление</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="faculty-item">
+          <div class="faculty-header">
+            <span>Факультет информационных технологий</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faculty-content">
+            <p>Современный факультет, готовящий специалистов в области программирования, искусственного интеллекта, кибербезопасности и анализа данных.</p>
+            <h4>Направления подготовки:</h4>
+            <ul class="programs-list">
+              <li>09.03.01 Информатика и вычислительная техника</li>
+              <li>09.03.02 Информационные системы и технологии</li>
+              <li>09.03.03 Прикладная информатика</li>
+              <li>09.03.04 Программная инженерия</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <h2 class="section-title center">Университет в цифрах</h2>
+      
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">70+</div>
+          <div class="stat-label">Лет истории</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Преподавателей</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Студентов</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Партнёрских программ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="section-title center">Контакты</h2>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="contact-title">Контактная информация</h3>
+          
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>г. Уфа, ул. Академическая, 1</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 123-45-67</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+7 (347) 234-56-78</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@umutb.ru (общие вопросы)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>support@umutb.ru (студенческие вопросы)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>administration@umutb.ru (ректорат)</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>office@umutb.ru (управление)</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="contact-info">
+          <h3 class="contact-title">Остались вопросы?</h3>
+          <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+          
+          <form style="margin-top: 20px;">
+            <div style="margin-bottom: 15px;">
+              <input type="text" placeholder="Ваше имя" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <input type="email" placeholder="Ваш email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <textarea placeholder="Ваше сообщение" rows="4" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+            </div>
+            
+            <button type="submit" style="width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">Отправить сообщение</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">УМУТиБ</h3>
+          <p>Негосударственное образовательное частное учреждение высшего образования «Уфимский международный университет технологий и бизнеса»</p>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Образование</h3>
+          <ul class="footer-links">
+            <li><a href="#">Бакалавриат</a></li>
+            <li><a href="#">Магистратура</a></li>
+            <li><a href="#">Аспирантура</a></li>
+            <li><a href="#">Дополнительное образование</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Факультеты</h3>
+          <ul class="footer-links">
+            <li><a href="#">Математики и компьютерных наук</a></li>
+            <li><a href="#">Физический</a></li>
+            <li><a href="#">Экономический</a></li>
+            <li><a href="#">Все факультеты</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Контакты</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+73471234567">+7 (347) 123-45-67</a></li>
+            <li><a href="mailto:info@umutb.ru">info@umutb.ru</a></li>
+            <li><a href="#">г. Уфа, ул. Академическая, 1</a></li>
+            <li><a href="#">Схема проезда</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Уфимский международный университет технологий и бизнеса. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      const nav = document.querySelector('nav ul');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    // Faculty accordion
+    document.querySelectorAll('.faculty-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        header.querySelector('i').classList.toggle('fa-chevron-down');
+        header.querySelector('i').classList.toggle('fa-chevron-up');
+      });
+    });
+  </script>
+</body>
+</html>
